@@ -1,3 +1,4 @@
+
 "use strict";
 
 const { Router } = require("express")
@@ -7,4 +8,5 @@ const { show } = require("../controllers/homeCtrl")
 const router = Router();
 //creates a route and uses the middleware for access to route
 router.get("/", show);
+
 module.exports = router;
