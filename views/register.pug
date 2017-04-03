@@ -2,35 +2,35 @@ extends partials/layout.pug
 
 block content
   .heading
-    h1 Register
-    if msg
-      h2= msg
+
+    h1 Register Into The Leaven Bread Temple
+    if message
+      h2 =  message
   .login-form
-    form(method="POST")
+    form(method='POST')
+
       .form-group
         label(for='email') Email Address
         input.form-control#email(
           type='email'
           name='email'
-          placeholder='you@example.com'
+
+          placeholder='me@gmail.com'
           required
-        )
-      .form-group
-        label(for='password') Password
-        input.form-control#password(
-          type='password'
-          name='password'
-          placeholder='*********'
-          required
-        )
-      .form-group
-        label(for='confirmation') Password Confirmation
-        input.form-control#confirmation(
-          type='password'
-          name='confirmation'
-          placeholder='*********'
-          required
-        )
-      .contact-form__submit
-        a.btn.btn-danger.btn-lg(href='/') Cancel
-        input.btn.btn-success.btn-lg(type='submit' value='Register')
+          )
+        .form-group
+          label(for='confirmation') Password Confirmation 
+          input.form-control#password(
+            type='passwordl'
+            name='confirmation'
+            placeholder='***********'
+            required
+          )
+        .contact-form__submit
+          a.btn.btn-danger.btn-lg(href='/') Cancel 
+          a.btn.btn-succes.btn-lg(type='submit' value='Register')
+          input.btn.btn-success.btn-lg(type='submit' value='Register')
+          
+          
+          
+            

@@ -1,41 +1,53 @@
 'use strict';
 
-require('dotenv').config();
-const express = require('express');
+require("dotenv").config
+
+const express  = require("express");
 const app = express();
+const routes = require("./routes/");
+const expressValidator = require("express-validator");
+const expressSession = require("express-sessions");
 
-const routes = require('./routes/')
 
-// pug configuration
-app.set('view engine', 'pug');
 
-app.locals.company = "🍕 Pizza Shack";
+//pug configuration for the view engine
+app.set("view engine", "pug");
+
+app.locals.company = " Pizza Shack 🍕";
 app.locals.body = {};
-app.locals.body.magic = "Foooooo!";
+app.locals.body.magic = " Fooooo! ";
 
-// Middlewares
-app.use(express.static('public'));
+//tells express to look in this directory
+app.use(express.static("public"))
+//access to all the routes and middlewares
 app.use(routes);
 
-app.get('/contact', (req, res, next) => {
-  res.render('contact', {page: 'Contact'});
-});
 
-app.get('/login', (req, res, next) => {
-  res.render('login', {page: 'Login'});
-});
 
-app.get('/register', (req, res, next) => {
-  res.render('register', {page: 'Register'});
-});
+// app.get("/about", (req, res, next)=> {
+//   res.render("about", {page: "About"})
+// })
 
-app.use((req, res) => {
-  res.render('404');
-});
+// app.get("/contact", (req, res, next)=> {
+//   res.render("contact", {page: "Contact"});
+// })
 
-// ********end of middlewares *********************
+// app.get("/login", (req, res, next)=> {
+//   res.render("login", {page: "Login"})
+// })
+
+app.get("/register", (req, res, next)=> {
+  res.render("register", {page: "Register"})
+})
+
+//default error
+app.use((req, res)=>{
+  res.render("404");
+})
+
+
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+app.listen(port, ()=> {
+  console.log("Listening on port ${port}");
 });
