@@ -7,17 +7,16 @@ block content
       .form-group
 
         label(for='name') Name 
-        input.form-control#name(type='text' name='name' placeholder='Heru')
+        input.form-control#name(type='text' name="contact_name" placeholder='Heru')
       .form-group
         label(for='name') Email Address 
-        input.form-control#email(type='text' name='name' placeholder='me@gmail.com')
+        input.form-control#email(type='text' name="contact_email" placeholder='me@gmail.com')
       .form-group
         label(for='name') Phone Number 
-        input.form-control#email(type='tel' name='phone' placeholder='4100-4100')
+        input.form-control#email(type='tel' name="contact_phone" placeholder='560-897-9876')
       .form-group
         label(for='message') Message
-        textarea.form-control#email(type='tel' name='phone' placeholder='What do you have to say!')
+        textarea.form-control#email(type='text' name="contact_message" placeholder='What do you have to say!')
       .contact-form__submit
         a.btn.btn-danger.btn-lg(href='/') Cancel
         input.btn.btn-sucess.btn-lg(type='submit' value='submit')
-

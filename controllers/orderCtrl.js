@@ -23,17 +23,18 @@ module.exports.show = (req, res, err) => {
   Promise.all([getToppings(), getSizes()])
   .then(([toppings, sizes]) => {
     res.render("order", {page: "Order", sizes, toppings})
-  .catch(err)
-  });
+  }).catch(err)
 }
 
 module.exports.create = ({ body }, res, err) => {
+  console.log("body", body)
   Order.forge(body)
   .save()
-  .then( (orderObj)=> {
+  .then( (orderObj) => {
+    console.log("orderObj", orderObj);
     res.render("index", {orderMsg: "Thanks for your order"});
   })
-  .catch( (err)=> {
+  .catch( (err) => {
     console.log("errors", err);
     Promise.all([
       Promise.resolve(err),

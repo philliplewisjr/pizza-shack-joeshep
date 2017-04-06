@@ -7,6 +7,6 @@ const { show, addContact } = require("../controllers/contactCtrl")
 const router = Router();
 //creates a route and uses the middleware to access the route
 router.get("/contact", show);
-// router.post("/contact", addContact);
+router.post("/contact", addContact);
 //exports the route for use
 module.exports = router
