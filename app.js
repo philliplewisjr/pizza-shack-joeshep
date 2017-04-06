@@ -4,21 +4,25 @@ require("dotenv").config
 const express  = require("express");
 const app = express();
 const routes = require("./routes/");
-const expressValidator = require("express-validator");
-const expressSession = require("express-sessions");
+const bodyParser = require("body-Parser");
+
 
 
 
 //pug configuration for the view engine
 app.set("view engine", "pug");
 
+
 app.locals.company = " Pizza Shack 🍕";
 app.locals.body = {};
+app.locals.errors = {};
 app.locals.body.magic = " Fooooo! ";
 
 //tells express to look in this directory
 app.use(express.static("public"))
 //access to all the routes and middlewares
+//need to install bodyParser npm module
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(routes);
 
 
@@ -48,5 +52,5 @@ app.use((req, res)=>{
 
 const port = process.env.PORT || 3000;
 app.listen(port, ()=> {
-  console.log("Listening on port ${port}");
+  console.log(`Listening on port ${port}`);
 });
